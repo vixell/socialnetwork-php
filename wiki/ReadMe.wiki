@@ -1,10 +1,32 @@
-= How to use SocialNetwork Class =
+= How to use `SocialNetwork` Class =
 
   # Configure Constant Variables
   # Call methods
 
 
 == Configure Constant Variables ==
+
+=== Get Twitter Token ===
+You have to create an application twitter as Browser
+https://dev.twitter.com/apps/new
+
+After submit, get your Consumer key and your Consumer secret in OAuth Section.
+And replace into the twitter.inc.php file
+
+Launch twitter.php and get your TOKEN ;)
+
+
+=== Get Your Facebook Token === 
+
+First, create facebook application here : http://www.facebook.com/developers/createapp.php
+Secondly, get your API Key and SECRET Key here:
+http://www.facebook.com/developers/apps.php
+
+=== Get Your Bit.Ly API KEY ===
+
+Go On Bit.ly http://bit.ly/a/account
+Get Your API Key.
+
 
 == Methods ==
 
