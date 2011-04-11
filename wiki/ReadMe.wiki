@@ -1,0 +1,31 @@
+= How to use SocialNetwork Class =
+
+1)Configure Constant Variables
+2)Call methods
+
+
+== Configure Constant Variables ==
+
+== Methods ==
+
+=== SocialNetwork::postToTwitter(<My_Message>); ===
+
+This method post <My_Message> on your twitter account linked to your application.
+
+The message was parse to shorten links with Bit.ly service.
+
+The method return the tweet's status.
+
+
+=== SocialNetwork::postOnFacebookFanPage($message,$title,$caption,$picture,$description,$link,$action) ==
+
+  * $message : The message what you want to attach to your link
+  * $title : the link's title
+  * $caption : the legend's title
+  * $picture : the picture's src
+  * $description : A short description
+  * $link : the link ;)
+  * $action : This is an array of Action . See an example: 
+{{{'actions' => array(
+array('name' => 'Action name', 'link' => 'http://')
+)}}}
