@@ -28,8 +28,10 @@ elseif(isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] === $_REQUEST
 
 	/* On stocke en session les token d'accès et on supprime ceux qui ne sont plus utiles. */
 	$_SESSION['access_token'] = $access_token;
-
-        var_dump($_SESSION);
+        echo "TOKEN : ".$_SESSION['oauth_token']."<br />";
+        echo "TOKEN SECRET : ".$_SESSION['oauth_token_secret'];
+        
 }
+
 
 ?>
