@@ -19,6 +19,7 @@ Launch twitter.php and get your TOKEN ;)
 === Get Your Facebook Token === 
 
 First, create facebook application here : http://www.facebook.com/developers/createapp.php
+
 Secondly, get your API Key and SECRET Key here:
 http://www.facebook.com/developers/apps.php
 
