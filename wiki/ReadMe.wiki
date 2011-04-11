@@ -56,7 +56,10 @@ array('name' => 'Action name', 'link' => 'http://')
 }}}
 
 To Allow your facebook application to publish on a facebook page, you have to configure your Fan page.
-Replace APPLICATION_ID (you can get this on your facebook apps list - http://www.facebook.com/developers/apps.php ) and go to http://www.facebook.com/connect/uiserver.php?app_id=APPLICATION_ID&next=http://www.facebook.com/&display=popup&locale=fr_FR&perms=publish_stream&enable_profile_selector=1&fbconnect=true&legacy_return=1&method=permissions.request
+
+Replace APPLICATION_ID (you can get this on your facebook apps list - http://www.facebook.com/developers/apps.php ) 
+and go to 
+http://www.facebook.com/connect/uiserver.php?app_id=APPLICATION_ID&next=http://www.facebook.com/&display=popup&locale=fr_FR&perms=publish_stream&enable_profile_selector=1&fbconnect=true&legacy_return=1&method=permissions.request
 
 
 And select your facebook fan page.
