@@ -9,12 +9,9 @@ include('twitter.inc.php');
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 /* On détermine quelle sera l'URL de callback. Dans notre cas, il s'agira de la page où se situe le formulaire d'ajout d'un commentaire */
-if ($_SERVER['HTTP_REFERER'] != "") {
-    $urlRedi = $_SERVER['HTTP_REFERER'];
-}
-else {
+
     $urlRedi = OAUTH_CALLBACK;
-}
+
 
 /* On demande les tokens à Twitter, et on passe l'URL de callback */
 $request_token = $connection->getRequestToken($urlRedi);
