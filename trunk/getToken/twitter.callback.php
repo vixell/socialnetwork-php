@@ -1,8 +1,8 @@
 <?php
   session_start();
-  include('../modules/twitter/twitteroauth.php');
+  include('./modules/twitter/twitteroauth.php');
   include('twitter.inc.php');
-  
+
   $isLoggedOnTwitter = false;
 
 if (!empty($_SESSION['access_token']) && !empty($_SESSION['access_token']['oauth_token']) && !empty($_SESSION['access_token']['oauth_token_secret'])) {
@@ -28,10 +28,10 @@ elseif(isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] === $_REQUEST
 
 	/* On stocke en session les token d'accès et on supprime ceux qui ne sont plus utiles. */
 	$_SESSION['access_token'] = $access_token;
-        echo "TOKEN : ".$_SESSION['oauth_token']."<br />";
-        echo "TOKEN SECRET : ".$_SESSION['oauth_token_secret'];
-        
-}
 
+
+}
+echo "TOKEN : ".$_SESSION['access_token']['oauth_token']."<br />";
+echo "TOKEN SECRET : ".$_SESSION['access_token']['oauth_token_secret'];
 
 ?>
