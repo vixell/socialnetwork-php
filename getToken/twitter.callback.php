@@ -1,6 +1,7 @@
 <?php
   session_start();
   include('../modules/twitter/twitteroauth.php');
+  include('twitter.inc.php');
   
   $isLoggedOnTwitter = false;
 
@@ -27,18 +28,8 @@ elseif(isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] === $_REQUEST
 
 	/* On stocke en session les token d'accès et on supprime ceux qui ne sont plus utiles. */
 	$_SESSION['access_token'] = $access_token;
-	unset($_SESSION['oauth_token']);
-	unset($_SESSION['oauth_token_secret']);
 
-	if (200 == $connection->http_code) {
-		$twitterInfos = $connection->get('account/verify_credentials');
-		$isLoggedOnTwitter = true;
-	}
-	else {
-		$isLoggedOnTwitter = false;
-	}
+        var_dump($_SESSION);
+}
 
-}
-else {
-	$isLoggedOnTwitter = false;
-}
+?>

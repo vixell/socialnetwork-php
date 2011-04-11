@@ -3,6 +3,7 @@
 /* Start session and load lib */
 session_start();
 include('../modules/twitter/twitteroauth.php');
+include('twitter.inc.php');
 
 /* Créer une connexion twitter avec les accès de l'application */
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
