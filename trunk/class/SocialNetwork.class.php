@@ -64,7 +64,7 @@ class SocialNetwork
     }
 
 
-    static public function postOnFacebookFanPage($message,$title,$caption,$description,$link,$action)
+    static public function postOnFacebookFanPage($message,$title,$caption,$picture,$description,$link,$action)
     {
         try{
                 $facebook = new Facebook(array(
@@ -83,6 +83,7 @@ class SocialNetwork
             'name' => $title,
             'link' => $link,
             'description' => $description,
+            'picture' => $picture,
             'actions' => $actions
         );
         try{
