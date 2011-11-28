@@ -4,7 +4,7 @@ require DS."modules/facebook/facebook.php";
 
 /**
  * @author remi
- * @version 1.0
+ * @version 1.1
  */
 class SocialNetwork
 {
@@ -16,12 +16,18 @@ class SocialNetwork
 
     const BITLY_LOGIN               = "";
     const BITLY_API_KEY             = "";
+    
+    const GOOGLE_API_KEY			= "";
+    
 
     const FB_ID_APPLICATION         = "";
     const FB_API_KEY                = "";
     const FB_API_SECRET             = "";
     const FB_FAN_PAGE_ID            = "";
 
+
+	const bitly 					= false;
+	const google					= false;
 
     static public function postToTwitter($message)
     {
@@ -42,12 +48,42 @@ class SocialNetwork
 
     static public function shortenURL($url)
     {
-        $eUrl = urlencode($url);
-        $bitly = "http://api.bitly.com/v3/shorten?login=".self::BITLY_LOGIN."&apiKey=".self::BITLY_API_KEY."&longUrl=".$eUrl."&format=json";
-        $f = file_get_contents($bitly);
-        $json = json_decode($f,true);
+    	if(self::bitly)
+    	{
+			$eUrl = urlencode($url);
+        	$ret = self::get_curl("http://api.bitly.com/v3/shorten?login=".self::BITLY_LOGIN."&apiKey=".self::BITLY_API_KEY."&longUrl=".$eUrl."&format=json");
+        	
+        	$json = json_decode($f,true);
+			
+        	return $json["data"]["url"]; 	
+    	}
+    	elseif(self::google)
+    	{
+    		$ret = self::get_curl("https://www.googleapis.com/urlshortener/v1/url?key=".self::GOOGLE_API_KEY,json_encode(array("longUrl"=>$url)),array("Content-Type: application/json"));
+    		$json = json_decode($ret);
+    		
+    		return $json->id;
+    	}
+        
+    }
+    
+    static private function get_curl( $url, $params = array(), $contentType=array() )
+    {
+    	$ch = curl_init($url);
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    	curl_setopt($ch, CURLOPT_HEADER, false);
+    	if(!empty($contentType))
+    		curl_setopt($ch,CURLOPT_HTTPHEADER,$contentType);
 
-        return $json["data"]["url"];
+    	if(!empty($params))
+    	{
+    		curl_setopt($ch, CURLOPT_POST,true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$params);	
+    	}
+    	
+    	$data = curl_exec($ch);
+    	curl_close($ch);
+    	return $data;
     }
 
     static function shortMessage($message)
